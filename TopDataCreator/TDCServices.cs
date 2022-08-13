@@ -10,8 +10,8 @@ namespace TopDataCreator
 {
     internal class TDCServices
     {
-        #region ConnectionString
-        internal string ConnectionString(
+        #region SetConnectionString
+        internal string SetConnectionString(
             string server, string database, bool trusted_connection,
             string userId, string password)
         {
@@ -32,8 +32,8 @@ namespace TopDataCreator
         }
         #endregion
 
-        #region DatabaseTables
-        internal List<string> DatabaseTables(string connectionString, string database)
+        #region GetDatabaseTables
+        internal List<string> GetDatabaseTables(string connectionString, string database)
         {
             List<string> tables = new List<string>();
 
@@ -62,6 +62,26 @@ namespace TopDataCreator
             }
 
             return tables;
+        }
+        #endregion
+
+        #region GetTableFields
+        public DataTable GetTableFields(string connectionString, string database, string table)
+        {
+            string sqlStatement = "SELECT COLUMN_NAME,DATA_TYPE,ISNULL(CHARACTER_MAXIMUM_LENGTH,0) AS FIELD_LENGTH FROM " + database + ".INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '" + table + "' ORDER BY ORDINAL_POSITION";
+
+            DataSet dataSet = new DataSet();
+
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlStatement, sqlConnection);
+
+                sqlDataAdapter.Fill(dataSet);
+            }
+
+            return dataSet.Tables[0];
         }
         #endregion
     }

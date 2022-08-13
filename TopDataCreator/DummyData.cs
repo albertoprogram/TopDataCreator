@@ -28,6 +28,11 @@ namespace TopDataCreator
             lblDBUser.Text = Spanish.DBUser;
             lblDBUPassword.Text = Spanish.DBUPassword;
             lblDatabase.Text = Spanish.Database;
+            lblTable.Text = Spanish.Table;
+
+            dgvTableFields.Columns[0].HeaderText = Spanish.FieldName;
+            dgvTableFields.Columns[1].HeaderText = Spanish.FieldType;
+            dgvTableFields.Columns[2].HeaderText = Spanish.FieldLength;
 
             chkWinAuthentication.Text = Spanish.WinAuthentication;
 
@@ -47,16 +52,39 @@ namespace TopDataCreator
         {
             TDCServices services = new TDCServices();
 
-            string connectionString = services.ConnectionString(txtDatabaseServer.Text, txtDatabase.Text,
+            string connectionString = services.SetConnectionString(txtDatabaseServer.Text, txtDatabase.Text,
                 chkWinAuthentication.Checked, txtDBUser.Text, txtDBUPassword.Text);
 
             List<string> tableList = new List<string>();
 
-            tableList = services.DatabaseTables(connectionString, txtDatabase.Text);
+            tableList = services.GetDatabaseTables(connectionString, txtDatabase.Text);
 
             foreach (string table in tableList)
             {
                 cmbDatabaseTables.Items.Add(table);
+            }
+
+            cmbDatabaseTables.DroppedDown = true;
+        }
+        #endregion
+
+        #region cmbDatabaseTables_SelectedIndexChanged
+        private void cmbDatabaseTables_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dgvTableFields.Rows.Clear();
+
+            TDCServices services = new TDCServices();
+
+            DataTable fields = new DataTable();
+
+            string connectionString = services.SetConnectionString(txtDatabaseServer.Text, txtDatabase.Text,
+                chkWinAuthentication.Checked, txtDBUser.Text, txtDBUPassword.Text);
+
+            fields = services.GetTableFields(connectionString, txtDatabase.Text, cmbDatabaseTables.GetItemText(cmbDatabaseTables.SelectedItem));
+
+            foreach(DataRow row in fields.Rows)
+            {
+                dgvTableFields.Rows.Add(row["COLUMN_NAME"].ToString(), row["DATA_TYPE"].ToString(), row["FIELD_LENGTH"].ToString());
             }
         }
         #endregion

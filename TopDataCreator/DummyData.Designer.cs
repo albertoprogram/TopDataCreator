@@ -41,6 +41,12 @@
             this.lblDatabase = new System.Windows.Forms.Label();
             this.txtDatabase = new System.Windows.Forms.TextBox();
             this.cmbDatabaseTables = new System.Windows.Forms.ComboBox();
+            this.dgvTableFields = new System.Windows.Forms.DataGridView();
+            this.fieldName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fieldType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fieldLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTable = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTableFields)).BeginInit();
             this.SuspendLayout();
             // 
             // lblConnection
@@ -148,16 +154,69 @@
             // cmbDatabaseTables
             // 
             this.cmbDatabaseTables.FormattingEnabled = true;
-            this.cmbDatabaseTables.Location = new System.Drawing.Point(226, 461);
+            this.cmbDatabaseTables.Location = new System.Drawing.Point(226, 446);
             this.cmbDatabaseTables.Name = "cmbDatabaseTables";
-            this.cmbDatabaseTables.Size = new System.Drawing.Size(151, 28);
+            this.cmbDatabaseTables.Size = new System.Drawing.Size(438, 28);
             this.cmbDatabaseTables.TabIndex = 12;
+            this.cmbDatabaseTables.SelectedIndexChanged += new System.EventHandler(this.cmbDatabaseTables_SelectedIndexChanged);
+            // 
+            // dgvTableFields
+            // 
+            this.dgvTableFields.AllowUserToAddRows = false;
+            this.dgvTableFields.AllowUserToDeleteRows = false;
+            this.dgvTableFields.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTableFields.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.fieldName,
+            this.fieldType,
+            this.fieldLength});
+            this.dgvTableFields.Location = new System.Drawing.Point(31, 518);
+            this.dgvTableFields.Name = "dgvTableFields";
+            this.dgvTableFields.ReadOnly = true;
+            this.dgvTableFields.RowHeadersWidth = 51;
+            this.dgvTableFields.RowTemplate.Height = 29;
+            this.dgvTableFields.Size = new System.Drawing.Size(907, 188);
+            this.dgvTableFields.TabIndex = 13;
+            // 
+            // fieldName
+            // 
+            this.fieldName.HeaderText = "FieldName";
+            this.fieldName.MinimumWidth = 6;
+            this.fieldName.Name = "fieldName";
+            this.fieldName.ReadOnly = true;
+            this.fieldName.Width = 125;
+            // 
+            // fieldType
+            // 
+            this.fieldType.HeaderText = "FieldType";
+            this.fieldType.MinimumWidth = 6;
+            this.fieldType.Name = "fieldType";
+            this.fieldType.ReadOnly = true;
+            this.fieldType.Width = 125;
+            // 
+            // fieldLength
+            // 
+            this.fieldLength.HeaderText = "FieldLength";
+            this.fieldLength.MinimumWidth = 6;
+            this.fieldLength.Name = "fieldLength";
+            this.fieldLength.ReadOnly = true;
+            this.fieldLength.Width = 125;
+            // 
+            // lblTable
+            // 
+            this.lblTable.AutoSize = true;
+            this.lblTable.Location = new System.Drawing.Point(39, 449);
+            this.lblTable.Name = "lblTable";
+            this.lblTable.Size = new System.Drawing.Size(44, 20);
+            this.lblTable.TabIndex = 14;
+            this.lblTable.Text = "Table";
             // 
             // DummyData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1138, 744);
+            this.Controls.Add(this.lblTable);
+            this.Controls.Add(this.dgvTableFields);
             this.Controls.Add(this.cmbDatabaseTables);
             this.Controls.Add(this.txtDatabase);
             this.Controls.Add(this.lblDatabase);
@@ -174,6 +233,7 @@
             this.Name = "DummyData";
             this.Text = "DummyData";
             this.Load += new System.EventHandler(this.DummyData_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTableFields)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,5 +254,10 @@
         private Label lblDatabase;
         private TextBox txtDatabase;
         private ComboBox cmbDatabaseTables;
+        private DataGridView dgvTableFields;
+        private DataGridViewTextBoxColumn fieldName;
+        private DataGridViewTextBoxColumn fieldType;
+        private DataGridViewTextBoxColumn fieldLength;
+        private Label lblTable;
     }
 }

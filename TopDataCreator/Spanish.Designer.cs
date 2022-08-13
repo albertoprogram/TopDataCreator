@@ -115,6 +115,42 @@ namespace TopDataCreator {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Longitud.
+        /// </summary>
+        internal static string FieldLength {
+            get {
+                return ResourceManager.GetString("FieldLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre del campo.
+        /// </summary>
+        internal static string FieldName {
+            get {
+                return ResourceManager.GetString("FieldName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tipo de dato.
+        /// </summary>
+        internal static string FieldType {
+            get {
+                return ResourceManager.GetString("FieldType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tabla.
+        /// </summary>
+        internal static string Table {
+            get {
+                return ResourceManager.GetString("Table", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Autenticación de Windows.
         /// </summary>
         internal static string WinAuthentication {

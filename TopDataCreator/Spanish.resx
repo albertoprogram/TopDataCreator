@@ -141,6 +141,22 @@
     <value>Usuario</value>
     <comment>DBUser</comment>
   </data>
+  <data name="FieldLength" xml:space="preserve">
+    <value>Longitud</value>
+    <comment>FieldLength</comment>
+  </data>
+  <data name="FieldName" xml:space="preserve">
+    <value>Nombre del campo</value>
+    <comment>FieldName</comment>
+  </data>
+  <data name="FieldType" xml:space="preserve">
+    <value>Tipo de dato</value>
+    <comment>FieldType</comment>
+  </data>
+  <data name="Table" xml:space="preserve">
+    <value>Tabla</value>
+    <comment>Table</comment>
+  </data>
   <data name="WinAuthentication" xml:space="preserve">
     <value>Autenticación de Windows</value>
     <comment>WinAuthentication</comment>
