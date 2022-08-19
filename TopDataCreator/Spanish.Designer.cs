@@ -61,6 +61,15 @@ namespace TopDataCreator {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Acciones.
+        /// </summary>
+        internal static string Actions {
+            get {
+                return ResourceManager.GetString("Actions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Conectar.
         /// </summary>
         internal static string Connect {
@@ -138,6 +147,15 @@ namespace TopDataCreator {
         internal static string FieldType {
             get {
                 return ResourceManager.GetString("FieldType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Configurar.
+        /// </summary>
+        internal static string SetUp {
+            get {
+                return ResourceManager.GetString("SetUp", resourceCulture);
             }
         }
         

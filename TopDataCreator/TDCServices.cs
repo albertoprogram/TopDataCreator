@@ -37,7 +37,7 @@ namespace TopDataCreator
         {
             List<string> tables = new List<string>();
 
-            string sqlStatement = "SELECT name FROM " + database + ".sys.tables";
+            string sqlStatement = "SELECT name FROM " + database + ".sys.tables ORDER BY name";
 
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {

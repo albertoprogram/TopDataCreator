@@ -33,6 +33,7 @@ namespace TopDataCreator
             dgvTableFields.Columns[0].HeaderText = Spanish.FieldName;
             dgvTableFields.Columns[1].HeaderText = Spanish.FieldType;
             dgvTableFields.Columns[2].HeaderText = Spanish.FieldLength;
+            dgvTableFields.Columns[3].HeaderText = Spanish.Actions;
 
             chkWinAuthentication.Text = Spanish.WinAuthentication;
 
@@ -82,9 +83,21 @@ namespace TopDataCreator
 
             fields = services.GetTableFields(connectionString, txtDatabase.Text, cmbDatabaseTables.GetItemText(cmbDatabaseTables.SelectedItem));
 
-            foreach(DataRow row in fields.Rows)
+            foreach (DataRow row in fields.Rows)
             {
-                dgvTableFields.Rows.Add(row["COLUMN_NAME"].ToString(), row["DATA_TYPE"].ToString(), row["FIELD_LENGTH"].ToString());
+                dgvTableFields.Rows.Add(row["COLUMN_NAME"].ToString(), row["DATA_TYPE"].ToString(), row["FIELD_LENGTH"].ToString(), Spanish.SetUp);
+            }
+        }
+        #endregion
+
+        #region dgvTableFields_CellContentClick
+        private void dgvTableFields_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 3)
+            {
+                FieldSetup fieldSetup = new FieldSetup(dgvTableFields.Rows[e.RowIndex].Cells["FieldName"].Value.ToString());
+
+                fieldSetup.ShowDialog();
             }
         }
         #endregion

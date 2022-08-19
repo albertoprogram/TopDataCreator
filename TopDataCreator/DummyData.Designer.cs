@@ -45,6 +45,7 @@
             this.fieldName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fieldType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fieldLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Actions = new System.Windows.Forms.DataGridViewLinkColumn();
             this.lblTable = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTableFields)).BeginInit();
             this.SuspendLayout();
@@ -52,7 +53,7 @@
             // lblConnection
             // 
             this.lblConnection.AutoSize = true;
-            this.lblConnection.Location = new System.Drawing.Point(31, 27);
+            this.lblConnection.Location = new System.Drawing.Point(31, 18);
             this.lblConnection.Name = "lblConnection";
             this.lblConnection.Size = new System.Drawing.Size(84, 20);
             this.lblConnection.TabIndex = 0;
@@ -61,7 +62,7 @@
             // lblDatabaseServer
             // 
             this.lblDatabaseServer.AutoSize = true;
-            this.lblDatabaseServer.Location = new System.Drawing.Point(31, 75);
+            this.lblDatabaseServer.Location = new System.Drawing.Point(31, 52);
             this.lblDatabaseServer.Name = "lblDatabaseServer";
             this.lblDatabaseServer.Size = new System.Drawing.Size(113, 20);
             this.lblDatabaseServer.TabIndex = 1;
@@ -69,7 +70,7 @@
             // 
             // txtDatabaseServer
             // 
-            this.txtDatabaseServer.Location = new System.Drawing.Point(226, 68);
+            this.txtDatabaseServer.Location = new System.Drawing.Point(226, 41);
             this.txtDatabaseServer.Name = "txtDatabaseServer";
             this.txtDatabaseServer.Size = new System.Drawing.Size(236, 27);
             this.txtDatabaseServer.TabIndex = 2;
@@ -77,7 +78,7 @@
             // lblSQLServer
             // 
             this.lblSQLServer.AutoSize = true;
-            this.lblSQLServer.Location = new System.Drawing.Point(226, 27);
+            this.lblSQLServer.Location = new System.Drawing.Point(226, 18);
             this.lblSQLServer.Name = "lblSQLServer";
             this.lblSQLServer.Size = new System.Drawing.Size(80, 20);
             this.lblSQLServer.TabIndex = 3;
@@ -86,7 +87,7 @@
             // lblDBUser
             // 
             this.lblDBUser.AutoSize = true;
-            this.lblDBUser.Location = new System.Drawing.Point(31, 259);
+            this.lblDBUser.Location = new System.Drawing.Point(31, 137);
             this.lblDBUser.Name = "lblDBUser";
             this.lblDBUser.Size = new System.Drawing.Size(58, 20);
             this.lblDBUser.TabIndex = 4;
@@ -95,7 +96,7 @@
             // chkWinAuthentication
             // 
             this.chkWinAuthentication.AutoSize = true;
-            this.chkWinAuthentication.Location = new System.Drawing.Point(31, 205);
+            this.chkWinAuthentication.Location = new System.Drawing.Point(31, 110);
             this.chkWinAuthentication.Name = "chkWinAuthentication";
             this.chkWinAuthentication.Size = new System.Drawing.Size(154, 24);
             this.chkWinAuthentication.TabIndex = 5;
@@ -104,7 +105,7 @@
             // 
             // txtDBUser
             // 
-            this.txtDBUser.Location = new System.Drawing.Point(226, 256);
+            this.txtDBUser.Location = new System.Drawing.Point(226, 134);
             this.txtDBUser.Name = "txtDBUser";
             this.txtDBUser.Size = new System.Drawing.Size(125, 27);
             this.txtDBUser.TabIndex = 6;
@@ -112,7 +113,7 @@
             // lblDBUPassword
             // 
             this.lblDBUPassword.AutoSize = true;
-            this.lblDBUPassword.Location = new System.Drawing.Point(31, 313);
+            this.lblDBUPassword.Location = new System.Drawing.Point(31, 170);
             this.lblDBUPassword.Name = "lblDBUPassword";
             this.lblDBUPassword.Size = new System.Drawing.Size(100, 20);
             this.lblDBUPassword.TabIndex = 7;
@@ -120,14 +121,14 @@
             // 
             // txtDBUPassword
             // 
-            this.txtDBUPassword.Location = new System.Drawing.Point(226, 310);
+            this.txtDBUPassword.Location = new System.Drawing.Point(226, 167);
             this.txtDBUPassword.Name = "txtDBUPassword";
             this.txtDBUPassword.Size = new System.Drawing.Size(125, 27);
             this.txtDBUPassword.TabIndex = 8;
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(362, 380);
+            this.btnConnect.Location = new System.Drawing.Point(373, 210);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(89, 33);
             this.btnConnect.TabIndex = 9;
@@ -138,7 +139,7 @@
             // lblDatabase
             // 
             this.lblDatabase.AutoSize = true;
-            this.lblDatabase.Location = new System.Drawing.Point(31, 139);
+            this.lblDatabase.Location = new System.Drawing.Point(31, 81);
             this.lblDatabase.Name = "lblDatabase";
             this.lblDatabase.Size = new System.Drawing.Size(72, 20);
             this.lblDatabase.TabIndex = 10;
@@ -146,7 +147,7 @@
             // 
             // txtDatabase
             // 
-            this.txtDatabase.Location = new System.Drawing.Point(226, 136);
+            this.txtDatabase.Location = new System.Drawing.Point(226, 74);
             this.txtDatabase.Name = "txtDatabase";
             this.txtDatabase.Size = new System.Drawing.Size(225, 27);
             this.txtDatabase.TabIndex = 11;
@@ -154,7 +155,7 @@
             // cmbDatabaseTables
             // 
             this.cmbDatabaseTables.FormattingEnabled = true;
-            this.cmbDatabaseTables.Location = new System.Drawing.Point(226, 446);
+            this.cmbDatabaseTables.Location = new System.Drawing.Point(226, 249);
             this.cmbDatabaseTables.Name = "cmbDatabaseTables";
             this.cmbDatabaseTables.Size = new System.Drawing.Size(438, 28);
             this.cmbDatabaseTables.TabIndex = 12;
@@ -168,14 +169,16 @@
             this.dgvTableFields.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.fieldName,
             this.fieldType,
-            this.fieldLength});
-            this.dgvTableFields.Location = new System.Drawing.Point(31, 518);
+            this.fieldLength,
+            this.Actions});
+            this.dgvTableFields.Location = new System.Drawing.Point(31, 305);
             this.dgvTableFields.Name = "dgvTableFields";
             this.dgvTableFields.ReadOnly = true;
             this.dgvTableFields.RowHeadersWidth = 51;
             this.dgvTableFields.RowTemplate.Height = 29;
-            this.dgvTableFields.Size = new System.Drawing.Size(907, 188);
+            this.dgvTableFields.Size = new System.Drawing.Size(907, 427);
             this.dgvTableFields.TabIndex = 13;
+            this.dgvTableFields.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTableFields_CellContentClick);
             // 
             // fieldName
             // 
@@ -201,10 +204,18 @@
             this.fieldLength.ReadOnly = true;
             this.fieldLength.Width = 125;
             // 
+            // Actions
+            // 
+            this.Actions.HeaderText = "Actions";
+            this.Actions.MinimumWidth = 6;
+            this.Actions.Name = "Actions";
+            this.Actions.ReadOnly = true;
+            this.Actions.Width = 125;
+            // 
             // lblTable
             // 
             this.lblTable.AutoSize = true;
-            this.lblTable.Location = new System.Drawing.Point(39, 449);
+            this.lblTable.Location = new System.Drawing.Point(31, 257);
             this.lblTable.Name = "lblTable";
             this.lblTable.Size = new System.Drawing.Size(44, 20);
             this.lblTable.TabIndex = 14;
@@ -255,9 +266,10 @@
         private TextBox txtDatabase;
         private ComboBox cmbDatabaseTables;
         private DataGridView dgvTableFields;
+        private Label lblTable;
         private DataGridViewTextBoxColumn fieldName;
         private DataGridViewTextBoxColumn fieldType;
         private DataGridViewTextBoxColumn fieldLength;
-        private Label lblTable;
+        private DataGridViewLinkColumn Actions;
     }
 }

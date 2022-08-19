@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Actions" xml:space="preserve">
+    <value>Acciones</value>
+    <comment>Acciones</comment>
+  </data>
   <data name="Connect" xml:space="preserve">
     <value>Conectar</value>
     <comment>Connect</comment>
@@ -152,6 +156,10 @@
   <data name="FieldType" xml:space="preserve">
     <value>Tipo de dato</value>
     <comment>FieldType</comment>
+  </data>
+  <data name="SetUp" xml:space="preserve">
+    <value>Configurar</value>
+    <comment>SetUp</comment>
   </data>
   <data name="Table" xml:space="preserve">
     <value>Tabla</value>
