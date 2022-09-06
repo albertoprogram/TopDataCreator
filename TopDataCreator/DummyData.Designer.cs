@@ -42,11 +42,15 @@
             this.txtDatabase = new System.Windows.Forms.TextBox();
             this.cmbDatabaseTables = new System.Windows.Forms.ComboBox();
             this.dgvTableFields = new System.Windows.Forms.DataGridView();
+            this.lblTable = new System.Windows.Forms.Label();
+            this.lblNumberRecordsGenerate = new System.Windows.Forms.Label();
+            this.txtNumberRecordsGenerate = new System.Windows.Forms.TextBox();
+            this.btnSeeFieldConfiguration = new System.Windows.Forms.Button();
             this.fieldName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fieldType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fieldLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Actions = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.lblTable = new System.Windows.Forms.Label();
+            this.Ready = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTableFields)).BeginInit();
             this.SuspendLayout();
             // 
@@ -170,15 +174,51 @@
             this.fieldName,
             this.fieldType,
             this.fieldLength,
-            this.Actions});
+            this.Actions,
+            this.Ready});
             this.dgvTableFields.Location = new System.Drawing.Point(31, 305);
             this.dgvTableFields.Name = "dgvTableFields";
             this.dgvTableFields.ReadOnly = true;
             this.dgvTableFields.RowHeadersWidth = 51;
             this.dgvTableFields.RowTemplate.Height = 29;
-            this.dgvTableFields.Size = new System.Drawing.Size(907, 427);
+            this.dgvTableFields.Size = new System.Drawing.Size(907, 303);
             this.dgvTableFields.TabIndex = 13;
             this.dgvTableFields.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTableFields_CellContentClick);
+            // 
+            // lblTable
+            // 
+            this.lblTable.AutoSize = true;
+            this.lblTable.Location = new System.Drawing.Point(31, 257);
+            this.lblTable.Name = "lblTable";
+            this.lblTable.Size = new System.Drawing.Size(44, 20);
+            this.lblTable.TabIndex = 14;
+            this.lblTable.Text = "Table";
+            // 
+            // lblNumberRecordsGenerate
+            // 
+            this.lblNumberRecordsGenerate.AutoSize = true;
+            this.lblNumberRecordsGenerate.Location = new System.Drawing.Point(31, 648);
+            this.lblNumberRecordsGenerate.Name = "lblNumberRecordsGenerate";
+            this.lblNumberRecordsGenerate.Size = new System.Drawing.Size(176, 20);
+            this.lblNumberRecordsGenerate.TabIndex = 15;
+            this.lblNumberRecordsGenerate.Text = "NumberRecordsGenerate";
+            // 
+            // txtNumberRecordsGenerate
+            // 
+            this.txtNumberRecordsGenerate.Location = new System.Drawing.Point(386, 641);
+            this.txtNumberRecordsGenerate.Name = "txtNumberRecordsGenerate";
+            this.txtNumberRecordsGenerate.Size = new System.Drawing.Size(125, 27);
+            this.txtNumberRecordsGenerate.TabIndex = 16;
+            // 
+            // btnSeeFieldConfiguration
+            // 
+            this.btnSeeFieldConfiguration.Location = new System.Drawing.Point(747, 614);
+            this.btnSeeFieldConfiguration.Name = "btnSeeFieldConfiguration";
+            this.btnSeeFieldConfiguration.Size = new System.Drawing.Size(191, 29);
+            this.btnSeeFieldConfiguration.TabIndex = 17;
+            this.btnSeeFieldConfiguration.Text = "SeeFieldConfiguration";
+            this.btnSeeFieldConfiguration.UseVisualStyleBackColor = true;
+            this.btnSeeFieldConfiguration.Click += new System.EventHandler(this.btnSeeFieldConfiguration_Click);
             // 
             // fieldName
             // 
@@ -212,20 +252,24 @@
             this.Actions.ReadOnly = true;
             this.Actions.Width = 125;
             // 
-            // lblTable
+            // Ready
             // 
-            this.lblTable.AutoSize = true;
-            this.lblTable.Location = new System.Drawing.Point(31, 257);
-            this.lblTable.Name = "lblTable";
-            this.lblTable.Size = new System.Drawing.Size(44, 20);
-            this.lblTable.TabIndex = 14;
-            this.lblTable.Text = "Table";
+            this.Ready.HeaderText = "Ready";
+            this.Ready.MinimumWidth = 6;
+            this.Ready.Name = "Ready";
+            this.Ready.ReadOnly = true;
+            this.Ready.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Ready.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Ready.Width = 125;
             // 
             // DummyData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1138, 744);
+            this.Controls.Add(this.btnSeeFieldConfiguration);
+            this.Controls.Add(this.txtNumberRecordsGenerate);
+            this.Controls.Add(this.lblNumberRecordsGenerate);
             this.Controls.Add(this.lblTable);
             this.Controls.Add(this.dgvTableFields);
             this.Controls.Add(this.cmbDatabaseTables);
@@ -267,9 +311,13 @@
         private ComboBox cmbDatabaseTables;
         private DataGridView dgvTableFields;
         private Label lblTable;
+        private Label lblNumberRecordsGenerate;
+        private TextBox txtNumberRecordsGenerate;
+        private Button btnSeeFieldConfiguration;
         private DataGridViewTextBoxColumn fieldName;
         private DataGridViewTextBoxColumn fieldType;
         private DataGridViewTextBoxColumn fieldLength;
         private DataGridViewLinkColumn Actions;
+        private DataGridViewCheckBoxColumn Ready;
     }
 }

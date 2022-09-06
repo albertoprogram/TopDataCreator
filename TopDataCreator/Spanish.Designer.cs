@@ -61,6 +61,15 @@ namespace TopDataCreator {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Aceptar.
+        /// </summary>
+        internal static string Accept {
+            get {
+                return ResourceManager.GetString("Accept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Acciones.
         /// </summary>
         internal static string Actions {
@@ -151,6 +160,33 @@ namespace TopDataCreator {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Llenar campo según su tipo y longitud.
+        /// </summary>
+        internal static string FillAccordingTypeLength {
+            get {
+                return ResourceManager.GetString("FillAccordingTypeLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cantidad de Registros a Generar.
+        /// </summary>
+        internal static string NumberRecordsGenerate {
+            get {
+                return ResourceManager.GetString("NumberRecordsGenerate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Listo.
+        /// </summary>
+        internal static string Ready {
+            get {
+                return ResourceManager.GetString("Ready", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Configurar.
         /// </summary>
         internal static string SetUp {
@@ -160,11 +196,29 @@ namespace TopDataCreator {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Top Data Creator.
+        /// </summary>
+        internal static string SystemName {
+            get {
+                return ResourceManager.GetString("SystemName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Tabla.
         /// </summary>
         internal static string Table {
             get {
                 return ResourceManager.GetString("Table", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El campo ha sido configurado.
+        /// </summary>
+        internal static string TheFieldHasBeenConfigured {
+            get {
+                return ResourceManager.GetString("TheFieldHasBeenConfigured", resourceCulture);
             }
         }
         

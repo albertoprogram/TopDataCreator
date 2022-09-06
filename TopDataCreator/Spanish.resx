@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Accept" xml:space="preserve">
+    <value>Aceptar</value>
+    <comment>Accept</comment>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Acciones</value>
     <comment>Acciones</comment>
@@ -157,13 +161,33 @@
     <value>Tipo de dato</value>
     <comment>FieldType</comment>
   </data>
+  <data name="FillAccordingTypeLength" xml:space="preserve">
+    <value>Llenar campo según su tipo y longitud</value>
+    <comment>FillAccordingTypeLength</comment>
+  </data>
+  <data name="NumberRecordsGenerate" xml:space="preserve">
+    <value>Cantidad de Registros a Generar</value>
+    <comment>NumberRecordsGenerate</comment>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Listo</value>
+    <comment>Ready</comment>
+  </data>
   <data name="SetUp" xml:space="preserve">
     <value>Configurar</value>
     <comment>SetUp</comment>
   </data>
+  <data name="SystemName" xml:space="preserve">
+    <value>Top Data Creator</value>
+    <comment>SytemName</comment>
+  </data>
   <data name="Table" xml:space="preserve">
     <value>Tabla</value>
     <comment>Table</comment>
+  </data>
+  <data name="TheFieldHasBeenConfigured" xml:space="preserve">
+    <value>El campo ha sido configurado</value>
+    <comment>TheFieldHasBeenConfigured</comment>
   </data>
   <data name="WinAuthentication" xml:space="preserve">
     <value>Autenticación de Windows</value>
