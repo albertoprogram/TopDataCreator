@@ -165,6 +165,10 @@
     <value>Llenar campo según su tipo y longitud</value>
     <comment>FillAccordingTypeLength</comment>
   </data>
+  <data name="GenerateData" xml:space="preserve">
+    <value>Generar Datos</value>
+    <comment>GenerateData</comment>
+  </data>
   <data name="NumberRecordsGenerate" xml:space="preserve">
     <value>Cantidad de Registros a Generar</value>
     <comment>NumberRecordsGenerate</comment>

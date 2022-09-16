@@ -67,6 +67,8 @@ namespace TopDataCreator
                 contract.FieldSetings(tuple);
 
                 MessageBox.Show(Spanish.TheFieldHasBeenConfigured, Spanish.SystemName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Close();
             }
         }
         #endregion

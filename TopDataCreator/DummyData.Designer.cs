@@ -42,15 +42,15 @@
             this.txtDatabase = new System.Windows.Forms.TextBox();
             this.cmbDatabaseTables = new System.Windows.Forms.ComboBox();
             this.dgvTableFields = new System.Windows.Forms.DataGridView();
+            this.fieldName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fieldType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fieldLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ready = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.lblTable = new System.Windows.Forms.Label();
             this.lblNumberRecordsGenerate = new System.Windows.Forms.Label();
             this.txtNumberRecordsGenerate = new System.Windows.Forms.TextBox();
             this.btnSeeFieldConfiguration = new System.Windows.Forms.Button();
-            this.fieldName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fieldType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fieldLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Actions = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.Ready = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btnGenerateData = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTableFields)).BeginInit();
             this.SuspendLayout();
             // 
@@ -174,7 +174,6 @@
             this.fieldName,
             this.fieldType,
             this.fieldLength,
-            this.Actions,
             this.Ready});
             this.dgvTableFields.Location = new System.Drawing.Point(31, 305);
             this.dgvTableFields.Name = "dgvTableFields";
@@ -184,6 +183,40 @@
             this.dgvTableFields.Size = new System.Drawing.Size(907, 303);
             this.dgvTableFields.TabIndex = 13;
             this.dgvTableFields.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTableFields_CellContentClick);
+            // 
+            // fieldName
+            // 
+            this.fieldName.HeaderText = "FieldName";
+            this.fieldName.MinimumWidth = 6;
+            this.fieldName.Name = "fieldName";
+            this.fieldName.ReadOnly = true;
+            this.fieldName.Width = 125;
+            // 
+            // fieldType
+            // 
+            this.fieldType.HeaderText = "FieldType";
+            this.fieldType.MinimumWidth = 6;
+            this.fieldType.Name = "fieldType";
+            this.fieldType.ReadOnly = true;
+            this.fieldType.Width = 125;
+            // 
+            // fieldLength
+            // 
+            this.fieldLength.HeaderText = "FieldLength";
+            this.fieldLength.MinimumWidth = 6;
+            this.fieldLength.Name = "fieldLength";
+            this.fieldLength.ReadOnly = true;
+            this.fieldLength.Width = 125;
+            // 
+            // Ready
+            // 
+            this.Ready.HeaderText = "Ready";
+            this.Ready.MinimumWidth = 6;
+            this.Ready.Name = "Ready";
+            this.Ready.ReadOnly = true;
+            this.Ready.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Ready.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Ready.Width = 125;
             // 
             // lblTable
             // 
@@ -220,53 +253,22 @@
             this.btnSeeFieldConfiguration.UseVisualStyleBackColor = true;
             this.btnSeeFieldConfiguration.Click += new System.EventHandler(this.btnSeeFieldConfiguration_Click);
             // 
-            // fieldName
+            // btnGenerateData
             // 
-            this.fieldName.HeaderText = "FieldName";
-            this.fieldName.MinimumWidth = 6;
-            this.fieldName.Name = "fieldName";
-            this.fieldName.ReadOnly = true;
-            this.fieldName.Width = 125;
-            // 
-            // fieldType
-            // 
-            this.fieldType.HeaderText = "FieldType";
-            this.fieldType.MinimumWidth = 6;
-            this.fieldType.Name = "fieldType";
-            this.fieldType.ReadOnly = true;
-            this.fieldType.Width = 125;
-            // 
-            // fieldLength
-            // 
-            this.fieldLength.HeaderText = "FieldLength";
-            this.fieldLength.MinimumWidth = 6;
-            this.fieldLength.Name = "fieldLength";
-            this.fieldLength.ReadOnly = true;
-            this.fieldLength.Width = 125;
-            // 
-            // Actions
-            // 
-            this.Actions.HeaderText = "Actions";
-            this.Actions.MinimumWidth = 6;
-            this.Actions.Name = "Actions";
-            this.Actions.ReadOnly = true;
-            this.Actions.Width = 125;
-            // 
-            // Ready
-            // 
-            this.Ready.HeaderText = "Ready";
-            this.Ready.MinimumWidth = 6;
-            this.Ready.Name = "Ready";
-            this.Ready.ReadOnly = true;
-            this.Ready.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Ready.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Ready.Width = 125;
+            this.btnGenerateData.Location = new System.Drawing.Point(923, 689);
+            this.btnGenerateData.Name = "btnGenerateData";
+            this.btnGenerateData.Size = new System.Drawing.Size(166, 29);
+            this.btnGenerateData.TabIndex = 18;
+            this.btnGenerateData.Text = "GenerateData";
+            this.btnGenerateData.UseVisualStyleBackColor = true;
+            this.btnGenerateData.Click += new System.EventHandler(this.btnGenerateData_Click);
             // 
             // DummyData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1138, 744);
+            this.Controls.Add(this.btnGenerateData);
             this.Controls.Add(this.btnSeeFieldConfiguration);
             this.Controls.Add(this.txtNumberRecordsGenerate);
             this.Controls.Add(this.lblNumberRecordsGenerate);
@@ -317,7 +319,7 @@
         private DataGridViewTextBoxColumn fieldName;
         private DataGridViewTextBoxColumn fieldType;
         private DataGridViewTextBoxColumn fieldLength;
-        private DataGridViewLinkColumn Actions;
         private DataGridViewCheckBoxColumn Ready;
+        private Button btnGenerateData;
     }
 }

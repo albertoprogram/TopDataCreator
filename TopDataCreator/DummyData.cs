@@ -51,12 +51,12 @@ namespace TopDataCreator
             dgvTableFields.Columns[0].HeaderText = Spanish.FieldName;
             dgvTableFields.Columns[1].HeaderText = Spanish.FieldType;
             dgvTableFields.Columns[2].HeaderText = Spanish.FieldLength;
-            dgvTableFields.Columns[3].HeaderText = Spanish.Actions;
-            dgvTableFields.Columns[4].HeaderText = Spanish.Ready;
+            dgvTableFields.Columns[3].HeaderText = Spanish.Ready;
 
             chkWinAuthentication.Text = Spanish.WinAuthentication;
 
             btnConnect.Text = Spanish.Connect;
+            btnGenerateData.Text = Spanish.GenerateData;
         }
         #endregion
 
@@ -104,7 +104,7 @@ namespace TopDataCreator
 
             foreach (DataRow row in fields.Rows)
             {
-                dgvTableFields.Rows.Add(row["COLUMN_NAME"].ToString(), row["DATA_TYPE"].ToString(), row["FIELD_LENGTH"].ToString(), Spanish.SetUp);
+                dgvTableFields.Rows.Add(row["COLUMN_NAME"].ToString(), row["DATA_TYPE"].ToString(), row["FIELD_LENGTH"].ToString());
             }
         }
         #endregion
@@ -114,20 +114,8 @@ namespace TopDataCreator
         {
             if (e.ColumnIndex == 3)
             {
-                FieldSetup fieldSetup = new
-                    FieldSetup(dgvTableFields.Rows[e.RowIndex].Index,
-                    dgvTableFields.Rows[e.RowIndex].Cells["FieldName"].Value.ToString(),
-                    dgvTableFields.Rows[e.RowIndex].Cells["FieldType"].Value.ToString(),
-                    dgvTableFields.Rows[e.RowIndex].Cells["FieldLength"].Value.ToString());
-
-                fieldSetup.contract = this;
-
-                fieldSetup.ShowDialog();
-            }
-            else if (e.ColumnIndex == 4)
-            {
                 int indexdgvRow = e.RowIndex;
-                
+
                 DataGridViewRow row = dgvTableFields.Rows[e.RowIndex];
 
                 DataGridViewCheckBoxCell boxCell = row.Cells["Ready"] as DataGridViewCheckBoxCell;
@@ -146,6 +134,18 @@ namespace TopDataCreator
                         indexList++;
                     }
                 }
+                else
+                {
+                    FieldSetup fieldSetup = new
+                    FieldSetup(dgvTableFields.Rows[e.RowIndex].Index,
+                    dgvTableFields.Rows[e.RowIndex].Cells["FieldName"].Value.ToString(),
+                    dgvTableFields.Rows[e.RowIndex].Cells["FieldType"].Value.ToString(),
+                    dgvTableFields.Rows[e.RowIndex].Cells["FieldLength"].Value.ToString());
+
+                    fieldSetup.contract = this;
+
+                    fieldSetup.ShowDialog();
+                }
             }
         }
         #endregion
@@ -161,6 +161,34 @@ namespace TopDataCreator
             }
 
             MessageBox.Show(infoFieldsSetting.ToString());
+        }
+        #endregion
+
+        #region btnGenerateData_Click
+        private void btnGenerateData_Click(object sender, EventArgs e)
+        {
+            string fieldName, fieldType, selectedOption, fieldValue;
+            int fieldLength;
+
+            foreach (var item in fieldSettings)
+            {
+                fieldName = item.Item2.ToString();
+                fieldType = dgvTableFields.Rows[item.Item1].Cells["FieldType"].Value.ToString();
+                fieldLength = Convert.ToInt32(dgvTableFields.Rows[item.Item1].Cells["FieldLength"].Value);
+                selectedOption = item.Item3.ToString();
+
+                switch (selectedOption)
+                {
+                    case "rbFillAccordingTypeLength":
+                        if (fieldType == "varchar" || fieldType == "nvarchar")
+                        {
+                            TDCServices services = new TDCServices();
+                            fieldValue = services.GetLorem(fieldLength);
+                            //Call Insert
+                        }
+                        break;
+                }
+            }
         }
         #endregion
     }

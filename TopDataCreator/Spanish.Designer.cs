@@ -169,6 +169,15 @@ namespace TopDataCreator {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Generar Datos.
+        /// </summary>
+        internal static string GenerateData {
+            get {
+                return ResourceManager.GetString("GenerateData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Cantidad de Registros a Generar.
         /// </summary>
         internal static string NumberRecordsGenerate {
