@@ -169,26 +169,62 @@ namespace TopDataCreator
         {
             string fieldName, fieldType, selectedOption, fieldValue;
             int fieldLength;
+            string sqlStatement;
+            string fields = string.Empty;
+            string values = string.Empty;
+            List<string> sqlStatements = new List<string>();
+            int numberOfRecords = int.Parse(txtNumberRecordsGenerate.Text.Trim());
 
-            foreach (var item in fieldSettings)
+            for (int i = 0; i < numberOfRecords; i++)
             {
-                fieldName = item.Item2.ToString();
-                fieldType = dgvTableFields.Rows[item.Item1].Cells["FieldType"].Value.ToString();
-                fieldLength = Convert.ToInt32(dgvTableFields.Rows[item.Item1].Cells["FieldLength"].Value);
-                selectedOption = item.Item3.ToString();
-
-                switch (selectedOption)
+                foreach (var item in fieldSettings)
                 {
-                    case "rbFillAccordingTypeLength":
-                        if (fieldType == "varchar" || fieldType == "nvarchar")
-                        {
-                            TDCServices services = new TDCServices();
-                            fieldValue = services.GetLorem(fieldLength);
-                            //Call Insert
-                        }
-                        break;
+                    fieldName = item.Item2.ToString();
+                    fieldType = dgvTableFields.Rows[item.Item1].Cells["FieldType"].Value.ToString();
+                    fieldLength = Convert.ToInt32(dgvTableFields.Rows[item.Item1].Cells["FieldLength"].Value);
+                    selectedOption = item.Item3.ToString();
+
+                    TDCServices services = new TDCServices();
+
+                    switch (selectedOption)
+                    {
+                        case "rbFillAccordingTypeLength":
+                            if (fieldType == "varchar" || fieldType == "nvarchar")
+                            {
+                                fields += fieldName + ",";
+
+                                fieldValue = services.GetLorem(fieldLength);
+
+                                values += "'" + fieldValue + "',";
+                            }
+
+                            break;
+                    }
                 }
+
+                fields = fields.Substring(0, fields.Length - 1);
+                values = values.Substring(0, values.Length - 1);
+
+                sqlStatement = "INSERT INTO " + txtDatabase.Text.Trim() + ".." + cmbDatabaseTables.Text.Trim() +
+                    " (" + fields + ") " + "VALUES" + " (" + values + ")";
+                sqlStatements.Add(sqlStatement);
+
+                fields = String.Empty;
+                values = String.Empty;
+
             }
+
+            ////////////////////////////////////////////////////
+            //just to validate the result
+            StringBuilder sb = new StringBuilder();
+
+            foreach (string sqlInsert in sqlStatements)
+            {
+                sb.Append(sqlInsert + "\n");
+            }
+
+            MessageBox.Show(sb.ToString());
+            ////////////////////////////////////////////////////
         }
         #endregion
     }
