@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -114,6 +115,28 @@ namespace TopDataCreator
             }
 
             return value;
+        }
+        #endregion
+
+        #region InsertData
+        public void InsertData(string connectionString, List<string> sqlStatements)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+
+                foreach (string statement in sqlStatements)
+                {
+                    using (SqlCommand sqlCommand = new SqlCommand())
+                    {
+                        sqlCommand.CommandType = CommandType.Text;
+                        sqlCommand.CommandText = statement;
+                        sqlCommand.Connection = sqlConnection;
+
+                        sqlCommand.ExecuteNonQuery();
+                    }
+                }
+            }
         }
         #endregion
     }

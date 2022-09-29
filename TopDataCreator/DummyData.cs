@@ -174,6 +174,7 @@ namespace TopDataCreator
             string values = string.Empty;
             List<string> sqlStatements = new List<string>();
             int numberOfRecords = int.Parse(txtNumberRecordsGenerate.Text.Trim());
+            TDCServices services = new TDCServices();
 
             for (int i = 0; i < numberOfRecords; i++)
             {
@@ -183,8 +184,6 @@ namespace TopDataCreator
                     fieldType = dgvTableFields.Rows[item.Item1].Cells["FieldType"].Value.ToString();
                     fieldLength = Convert.ToInt32(dgvTableFields.Rows[item.Item1].Cells["FieldLength"].Value);
                     selectedOption = item.Item3.ToString();
-
-                    TDCServices services = new TDCServices();
 
                     switch (selectedOption)
                     {
@@ -214,17 +213,24 @@ namespace TopDataCreator
 
             }
 
-            ////////////////////////////////////////////////////
-            //just to validate the result
-            StringBuilder sb = new StringBuilder();
+            //////////////////////////////////////////////////////
+            ////just to validate the result
+            //StringBuilder sb = new StringBuilder();
 
-            foreach (string sqlInsert in sqlStatements)
-            {
-                sb.Append(sqlInsert + "\n");
-            }
+            //foreach (string sqlInsert in sqlStatements)
+            //{
+            //    sb.Append(sqlInsert + "\n");
+            //}
 
-            MessageBox.Show(sb.ToString());
-            ////////////////////////////////////////////////////
+            //MessageBox.Show(sb.ToString());
+            //////////////////////////////////////////////////////
+
+            string connectionString = services.SetConnectionString(txtDatabaseServer.Text, txtDatabase.Text,
+                chkWinAuthentication.Checked, txtDBUser.Text, txtDBUPassword.Text);
+
+            services.InsertData(connectionString, sqlStatements);
+
+            MessageBox.Show(Spanish.DataInsertSuccessful, Spanish.SystemName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         #endregion
     }

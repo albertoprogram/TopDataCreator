@@ -141,6 +141,10 @@
     <value>Servidor de Base de Datos</value>
     <comment>DatabaseServer</comment>
   </data>
+  <data name="DataInsertSuccessful" xml:space="preserve">
+    <value>Inserción de datos realizada con éxito</value>
+    <comment>DataInsertSuccessful</comment>
+  </data>
   <data name="DBUPassword" xml:space="preserve">
     <value>Contraseña</value>
     <comment>DBUPassword</comment>

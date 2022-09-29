@@ -115,6 +115,15 @@ namespace TopDataCreator {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Inserción de datos realizada con éxito.
+        /// </summary>
+        internal static string DataInsertSuccessful {
+            get {
+                return ResourceManager.GetString("DataInsertSuccessful", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Contraseña.
         /// </summary>
         internal static string DBUPassword {
